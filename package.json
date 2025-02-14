@@ -10,11 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^1.0.6",
+    "@heroui/react": "^2.6.14",
+    "@mui/material": "^6.4.4",
     "@types/jest": "^29.5.11",
     "bcryptjs": "^3.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "framer-motion": "^12.4.2",
+    "heroicons": "^2.2.0",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.475.0",
     "mongoose": "^8.10.0",
