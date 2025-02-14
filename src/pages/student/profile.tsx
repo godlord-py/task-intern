@@ -13,7 +13,7 @@ const  Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await fetch('/api/profile', {
+        const response = await fetch('https://task-intern-n5bn.onrender.com/api/profile', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('authToken')}`,
           },

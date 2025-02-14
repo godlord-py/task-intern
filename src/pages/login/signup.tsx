@@ -17,7 +17,7 @@ export default function Register() {
 
   const handleRegister = async () => {
     try {
-      const response = await fetch('/api/register', {
+      const response = await fetch('https://task-intern-n5bn.onrender.com/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password, year, college, section, rollNo })
