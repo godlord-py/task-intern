@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { GraduationCap, Mail, Lock, ArrowRight } from 'lucide-react';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
+  
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -18,12 +22,13 @@ const Login = () => {
       const data = await response.json();
       if (response.ok) {
         localStorage.setItem('authToken', data.token);
-        window.location.href = '/student';
+        toast.success('Login successful! Redirecting...');
+        setTimeout(() => navigate('/student'), 2000);
       } else {
-        alert(data.message || 'Invalid email or password');
+        toast.error(data.message || 'Invalid email or password');
       }
     } catch (error) {
-      alert('An error occurred. Please try again.');
+      toast.error('An error occurred. Please try again.');
     }
     setIsLoading(false);
   };

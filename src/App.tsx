@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import ProtectedRoute from './routes/ProtectedRoutes';
 import { ThemeContext } from './context/theme';
+import Profile from './pages/student/profile';
 function App() {
   const { theme } = useContext(ThemeContext);
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/student" element={<ProtectedRoute element={<StudentPortal />} />} />
         <Route path="/" element={<Home/>} />
+        <Route path="/profile" element={<ProtectedRoute element={<Profile />} />} />
           </Routes>
           <ToastContainer />
         </BrowserRouter>

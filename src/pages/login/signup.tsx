@@ -7,20 +7,30 @@ export default function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [year, setYear] = useState('');
+  const [college, setCollege] = useState('');
+  const [section, setSection] = useState('');
+  const [rollNo, setRollNo] = useState('');
+  
   const navigate = useNavigate();
 
+
   const handleRegister = async () => {
-    const response = await fetch('/api/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, password })
-    });
-    const data = await response.json();
-    if (response.ok) {
-      toast.success('Registration successful! Redirecting to login...');
-      setTimeout(() => navigate('/login'), 2000);
-    } else {
-      toast.error(data.message || 'Registration failed');
+    try {
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password, year, college, section, rollNo })
+      });
+      const data = await response.json();
+      if (response.ok) {
+        toast.success('Registration successful! Redirecting to login...');
+        setTimeout(() => navigate('/login'), 2000);
+      } else {
+        toast.error(data.message || 'Registration failed');
+      }
+    } catch (error) {
+      toast.error('An error occurred. Please try again.');
     }
   };
 
@@ -49,6 +59,7 @@ export default function Register() {
                 placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required
               />
             </div>
             <div className="flex items-center border rounded p-2 space-x-2">
@@ -59,6 +70,7 @@ export default function Register() {
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
             <div className="flex items-center border rounded p-2 space-x-2">
@@ -69,6 +81,51 @@ export default function Register() {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <div className="flex items-center border rounded p-2 space-x-2">
+              <User className="h-5 w-5 text-gray-400" />
+              <input
+                className="w-full outline-none text-black"
+                type="text"
+                placeholder="Year"
+                value={year}
+                onChange={(e) => setYear(e.target.value)}
+                required
+              />
+            </div>
+            <div className="flex items-center border rounded p-2 space-x-2">
+              <User className="h-5 w-5 text-gray-400" />
+              <input
+                className="w-full outline-none text-black"
+                type="text"
+                placeholder="College"
+                value={college}
+                onChange={(e) => setCollege(e.target.value)}
+                required
+              />
+            </div>
+            <div className="flex items-center border rounded p-2 space-x-2">
+              <User className="h-5 w-5 text-gray-400" />
+              <input
+                className="w-full outline-none text-black"
+                type="text"
+                placeholder="Section"
+                value={section}
+                onChange={(e) => setSection(e.target.value)}
+                required
+              />
+            </div>
+            <div className="flex items-center border rounded p-2 space-x-2">
+              <User className="h-5 w-5 text-gray-400" />
+              <input
+                className="w-full outline-none text-black"
+                type="text"
+                placeholder="Roll No"
+                value={rollNo}
+                onChange={(e) => setRollNo(e.target.value)}
+                required
               />
             </div>
             <div className="relative">
