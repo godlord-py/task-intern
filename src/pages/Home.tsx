@@ -1,6 +1,6 @@
 import React from 'react';
 import { GraduationCap, LogIn, UserPlus, ChevronRight } from 'lucide-react';
-import "/home/godlord/wd301/hello-react/src/index.css";
+import "/src/index.css";
 
 const Home = () => {
   return (

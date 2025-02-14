@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Bell, User, LogOut, Book, FileText } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { ThemeContext } from '/home/godlord/wd301/hello-react/src/context/theme';
-import ThemeToggle from '/home/godlord/wd301/hello-react/src/pages/UI/themebutton';
-import Profile from '/home/godlord/wd301/hello-react/src/pages/student/profile';
+import { ThemeContext } from '/src/context/theme';
+import ThemeToggle from '/src/pages/UI/themebutton';
+import Profile from '/src/pages/student/profile';
 
 const sidebarItems = [
   { id: 'dashboard', icon: User, label: 'Dashboard' },

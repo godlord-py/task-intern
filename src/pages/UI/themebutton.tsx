@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { ThemeContext } from '/home/godlord/wd301/hello-react/src/context/theme';
+import { ThemeContext } from '/src/context/theme';
 
 interface ToggleSwitchProps {
     checked: boolean;
