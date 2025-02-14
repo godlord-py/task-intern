@@ -17,17 +17,18 @@ const allowedOrigins = [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
     'https://67af9223eb0cff4d927baf53--studentedu-ui.netlify.app',
+    'https://studentedu-ui.netlify.app',
   ];
 
   app.use(helmet({
     contentSecurityPolicy: {
       directives: {
-        defaultSrc: ["'self'", "http://localhost:5173", "http://127.0.0.1:5173"],
-        scriptSrc: ["'self'", "http://localhost:5173", "http://127.0.0.1:5173", "'unsafe-inline'", "https://67af9223eb0cff4d927baf53--studentedu-ui.netlify.app"],
-        styleSrc: ["'self'", "http://localhost:5173", "http://127.0.0.1:5173", "'unsafe-inline'", "https://67af9223eb0cff4d927baf53--studentedu-ui.netlify.app"],
+        defaultSrc: ["'self'", "http://localhost:5173", "http://127.0.0.1:5173", "https://studentedu-ui.netlify.app"],
+        scriptSrc: ["'self'", "http://localhost:5173", "http://127.0.0.1:5173", "'unsafe-inline'", "https://67af9223eb0cff4d927baf53--studentedu-ui.netlify.app", "https://studentedu-ui.netlify.app"],
+        styleSrc: ["'self'", "http://localhost:5173", "http://127.0.0.1:5173", "'unsafe-inline'", "https://67af9223eb0cff4d927baf53--studentedu-ui.netlify.app", "https://studentedu-ui.netlify.app"],
         fontSrc: ["'self'", 'data:'],
         imgSrc: ["'self'", 'data:'],
-        connectSrc: ["'self'", "http://localhost:5173", "http://127.0.0.1:5173", "https://67af9223eb0cff4d927baf53--studentedu-ui.netlify.app"],
+        connectSrc: ["'self'", "http://localhost:5173", "http://127.0.0.1:5173", "https://67af9223eb0cff4d927baf53--studentedu-ui.netlify.app", "https://studentedu-ui.netlify.app"],
         frameSrc: ["'self'"]
       }
     }

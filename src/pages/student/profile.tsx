@@ -36,8 +36,8 @@ const  Profile = () => {
   if (!student) return <p className="text-center mt-10 text-red-500">No profile data found.</p>;
 
   return (
-    <div className={`min-h-screen flex items-center justify-center ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}>
-      <div className={`bg-white p-8 rounded-lg shadow-lg w-96 ${theme === 'dark' ? 'bg-gray-700 text-white' : 'bg-white text-gray-800'}`}>
+    <div className={`min-h-screen flex items-center justify-center ${theme === 'dark' ? 'bg-gray-800 text-gray-900' : 'bg-white text-gray-800'}`}>
+      <div className={`bg-white p-8 rounded-lg shadow-lg w-96 ${theme === 'dark' ? 'bg-gray-700 text-gray-900' : 'bg-white text-gray-800'}`}>
         <div className="text-center mb-6">
           <GraduationCap className="h-12 w-12 text-blue-600 mx-auto" />
           <h1 className="text-2xl font-bold text-black">Student Profile</h1>
