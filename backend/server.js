@@ -6,11 +6,32 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import connectDB from './db.js'; 
+import helmet from 'helmet';
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 const SECRET_KEY = process.env.JWT_SECRET || 'ThisismysecretkeyAayushPathak';
+
+const allowedOrigins = [
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+    'https://67af9223eb0cff4d927baf53--studentedu-ui.netlify.app',
+  ];
+
+  app.use(helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'", "http://localhost:5173", "http://127.0.0.1:5173"],
+        scriptSrc: ["'self'", "http://localhost:5173", "http://127.0.0.1:5173", "'unsafe-inline'", "https://67af9223eb0cff4d927baf53--studentedu-ui.netlify.app"],
+        styleSrc: ["'self'", "http://localhost:5173", "http://127.0.0.1:5173", "'unsafe-inline'", "https://67af9223eb0cff4d927baf53--studentedu-ui.netlify.app"],
+        fontSrc: ["'self'", 'data:'],
+        imgSrc: ["'self'", 'data:'],
+        connectSrc: ["'self'", "http://localhost:5173", "http://127.0.0.1:5173", "https://67af9223eb0cff4d927baf53--studentedu-ui.netlify.app"],
+        frameSrc: ["'self'"]
+      }
+    }
+  }));
 
 // Connect to MongoDB
 let db;
@@ -20,7 +41,15 @@ connectDB()
   })
   .catch(err => console.error("Database connection error:", err));
 
-app.use(cors());
+  app.use(cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    }
+  }));
 app.use(bodyParser.json());
 
 app.post('/api/register', async (req, res) => {
