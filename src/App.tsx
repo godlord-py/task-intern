@@ -18,6 +18,7 @@ function App() {
         theme === 'dark' ? 'dark' : ''
       }`}
     >
+    {/*BrowserRouter is used to wrap the Routes */}
     <BrowserRouter>
           <Routes>
         <Route path="/register" element={<Register />} />

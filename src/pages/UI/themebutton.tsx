@@ -1,3 +1,5 @@
+
+//This is basically the theme button to switch between dark and light mode. The button state changes as well.
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from '/src/context/theme';
 

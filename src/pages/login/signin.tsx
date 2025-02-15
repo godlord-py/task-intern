@@ -4,16 +4,19 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  //defined states for email, password and isLoading
+  const [email, setEmail] = useState('');  
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  
+  //function to handle login
   const handleLogin = async (e) => {
+    //prevent default form submission
     e.preventDefault();
     setIsLoading(true);
     try {
+      //fetching the login api
       const response = await fetch('https://task-intern-n5bn.onrender.com/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -34,6 +37,7 @@ const Login = () => {
   };
 
   return (
+    //returning the login form and inputs are required
     <div className="min-h-screen bg-gray-50">
       <nav className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

@@ -5,6 +5,7 @@ import { ThemeContext } from '/src/context/theme';
 import ThemeToggle from '/src/pages/UI/themebutton';
 import Profile from '/src/pages/student/profile';
 
+//defined sidebar items
 const sidebarItems = [
   { id: 'dashboard', icon: User, label: 'Dashboard' },
   { id: 'courses', icon: Book, label: 'Profile' },
@@ -12,11 +13,13 @@ const sidebarItems = [
 ];
 
 const StudentPortal = () => {
+  //defined states for sidebar, activeTab
   const navigate = useNavigate();
+  //used theme context
   const { theme } = useContext(ThemeContext);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [activeTab, setActiveTab] = useState('dashboard');
-  
+  //fetching name and email from local storage
   const name = localStorage.getItem('name') || 'Student';
   const email = localStorage.getItem('email') || 'Not available';
 

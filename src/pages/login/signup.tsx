@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { GraduationCap, User, Mail, Lock } from 'lucide-react';
 
 export default function Register() {
+  //defined states for name, email, password, year, college, section and rollNo
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,10 +13,12 @@ export default function Register() {
   const [section, setSection] = useState('');
   const [rollNo, setRollNo] = useState('');
   
+  //function to handle navigation after registration
   const navigate = useNavigate();
 
 
   const handleRegister = async () => {
+    //fetching the register api from deployed backend on render
     try {
       const response = await fetch('https://task-intern-n5bn.onrender.com/api/register', {
         method: 'POST',
@@ -35,6 +38,7 @@ export default function Register() {
   };
 
   return (
+    //returning the registration form and inputs are required
     <div className="min-h-screen bg-gray-50">
       <nav className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

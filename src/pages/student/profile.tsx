@@ -6,10 +6,12 @@ import { ThemeContext } from '../../context/theme';
 
 
 const  Profile = () => {
+  //defined states for student and loading
   const [student, setStudent] = useState(null);
   const [loading, setLoading] = useState(true);
   const { theme } = useContext(ThemeContext);
-
+ 
+  //useEffect to fetch the profile data
   useEffect(() => {
     const fetchProfile = async () => {
       try {
@@ -31,11 +33,12 @@ const  Profile = () => {
     };
     fetchProfile();
   }, []);
-
+  //conditional rendering based on loading and student data
   if (loading) return <p className="text-center mt-10 text-gray-600">Loading profile...</p>;
   if (!student) return <p className="text-center mt-10 text-red-500">No profile data found.</p>;
 
   return (
+    //returning the student profile data
     <div className={`min-h-screen flex items-center justify-center ${theme === 'dark' ? 'bg-gray-800 text-gray-900' : 'bg-white text-gray-800'}`}>
       <div className={`bg-white p-8 rounded-lg shadow-lg w-96 ${theme === 'dark' ? 'bg-gray-700 text-gray-900' : 'bg-white text-gray-800'}`}>
         <div className="text-center mb-6">
